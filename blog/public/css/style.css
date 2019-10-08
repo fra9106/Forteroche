@@ -10,7 +10,27 @@ header{
 
 p{
 	font-size: 20px;
+	color: grey;
 }
 .btn {
 	margin-left: 90px;
+}
+
+#bonjSession{
+	font-size: 18px;
+	color: #760001;
+	
+}
+.news{
+	border: 1px solid #760001; 
+	margin: 15px 15px 15px;
+}
+.news :hover{
+	color: #760001;
+}
+
+.vuChapComment{
+	background: radial-gradient(white,grey);
+	border: 1px solid black;
+    border-radius: 5px;
 }
