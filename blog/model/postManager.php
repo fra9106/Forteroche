@@ -1,5 +1,7 @@
 <?php
-class PostManager
+require_once("model/manager.php"); //appelle la class Manager pour se connecter à bdd
+
+class PostManager extends Manager // héritage class Manager
 {
 	public function getPosts() // méthode de récupération de tous les chapitres rangés en ordre de date descendante
 	{
@@ -21,17 +23,5 @@ class PostManager
 
 	}
 
-	private function dbConnect()// méthode de connexion à la bdd
-	{
-		try
-		{
-			$db = new PDO('mysql:host=localhost;dbname=openclass;charset=utf8', 'root', '');
-			return $db;
-		}
-		catch (Exception $e)
-		{
-			die('Erreur : ' .$e->getMessage());
-		}
-	}
-
+	
 }
