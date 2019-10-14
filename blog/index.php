@@ -29,7 +29,9 @@
   		echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun identifiant de news envoyé !';
   	}
   }
+
  }
+  
 }
 }else {
  	listPosts();
