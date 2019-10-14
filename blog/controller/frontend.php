@@ -24,11 +24,11 @@ function post() //fonction de récupération des chapitre ET ses commentaires pa
 	require('view/frontend/postView.php');
 }
 
-function addComment($idBillet, $idUser, $author, $comment, $signalement) // teste le retour de la requete postComment...
+function addComment($idBillet, $comment) // teste le retour de la requete postComment...
 {
 	$commentManager = new CommentManager();
 
-	$affectedLines = $commentManager->postComment($idBillet, $idUser, $author, $comment, $signalement);
+	$affectedLines = $commentManager->postComment($idBillet, $comment);
 
 	if ($affectedLines === false){ //si le commentaire n'arrive pas à la bdd...
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible d\'ajouter le commentaire !');// on arrête le script avec un die

@@ -12,14 +12,14 @@ class CommentManager extends Manager // héritage class Manager
 		return $comments;
 	}
 
-	public function postComment($idBillet, $idUser, $comment, $signalement)//méthode envoit les commentaires à la table comments
+	public function postComment($idBillet, $comment)//méthode envoit les commentaires à la table comments
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('INSERT INTO comments(id_billet, id_user, comment, signalement, comment_date) VALUES(?, ?, ?, ?, NOW())');
-		$affectedLines = $comments->execute(array($idBillet, $idUser, $comment, $signalement));
+		$comments = $db->prepare('INSERT INTO comments(id_billet, comment, comment_date) VALUES(?, ?, NOW())');
+		$affectedLines = $comments->execute(array($idBillet, $comment));
 
 		return $affectedLines;
-	}//SELECT civilite.libele,copain.prenom FROM `copain` inner join civilite on copain.id_civilite = civilite.id 
+	}
 
 	
 }
