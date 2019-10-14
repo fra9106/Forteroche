@@ -20,8 +20,8 @@
   	if (isset($_GET['id']) && $_GET['id'] > 0) {
       if (isset($_GET['id_billet']) && $_GET['id_billet'] > 0) {
         if (isset($_GET['id_user']) && $_GET['id_user'] > 0) {
-  		if(!empty($_POST['author']) && !empty($_POST['comment'])) {
-  			addComment($_GET['id'], $_POST['id_billet'], $_POST['id_user'], $_POST['author'], $_POST['comment']);
+  		if(!empty($_POST['id_user']) && !empty($_POST['comment'])) {
+  			addComment($_GET['id'], $_POST['id_billet'], $_POST['id_user'], $_POST['comment']);
   		}else{
   			echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Tous les champs ne sont pas remplis !';
   		}
@@ -31,7 +31,7 @@
   }
 
  }
-  
+
 }
 }else {
  	listPosts();
