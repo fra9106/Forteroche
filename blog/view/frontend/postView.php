@@ -22,9 +22,7 @@
          <h2>Votre commentaire</h2><br/>
 
          <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-            <div>
-                <input type="text" id="author" name="author" placeholder="pseudo">
-            </div><br>
+            
              <div>
                  <textarea id="comment" name="comment" placeholder="Votre texte"></textarea>
              </div><br>
@@ -39,7 +37,7 @@
         	while ($comment = $comments->fetch()) //renvoit dans $comment les infos du commentaire
         	{
         	?>     <!--affiche l'auteur la date et le commentaire-->
-        		<p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+        		<p>le <?= $comment['comment_date_fr'] ?></p>
         		<p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
         	<?php
         	}
