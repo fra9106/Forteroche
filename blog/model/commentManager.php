@@ -15,7 +15,7 @@ class CommentManager extends Manager // héritage class Manager
 	public function postComment($idBillet, $comment)//méthode envoit les commentaires à la table comments
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('INSERT INTO comments(id_billet, comment, comment_date) VALUES(?, ?, NOW())');//id_user
+		$comments = $db->prepare('INSERT INTO comments(id_billet, comment, comment_date) VALUES( ?, ?, NOW())');
 		$affectedLines = $comments->execute(array($idBillet, $comment));
 
 		return $affectedLines;
