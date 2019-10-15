@@ -3,12 +3,15 @@ session_start();
 setcookie('pseudo', $_SESSION['pseudo'], time() + 60*60*24*30, null, null, false, true);
 if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) 
  if(isset($_POST['id']) AND !empty($_POST['id']))
-  if(isset($_POST['prenom']) AND !empty($_POST['prenom']))
+  
+
+  
   
   {  
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['id'] = $_POST['id'];
-    $_SESSION['prenom'] = $_POST['prenom'];
+  
+    
     
   }
 ?>
