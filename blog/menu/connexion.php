@@ -41,7 +41,8 @@ if(isset($_POST['connexion'])) {
    } else {
       $erreur = "Tous les champs doivent être remplis !";
    } 
-
+if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
+                              header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
 }
 ?>
 <html lang="fr">
