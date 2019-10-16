@@ -34,7 +34,7 @@ if(isset($_POST['connexion'])) {
          $_SESSION['pseudo'] = $userinfo['pseudo'];
          $_SESSION['mail'] = $userinfo['mail'];
          $_SESSION['droits'] = $userinfo['droits'];
-         header("Location: blogAccueilConnect.php?id=".$_SESSION['id']);
+         header("Location: blogAccueilConnect.php?id=");
       } else {
          $erreur = "Mauvais mail ou mot de passe !";
       }
@@ -42,7 +42,7 @@ if(isset($_POST['connexion'])) {
       $erreur = "Tous les champs doivent être remplis !";
    } 
 if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-                              header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
+  header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
 }
 ?>
 <html lang="fr">
