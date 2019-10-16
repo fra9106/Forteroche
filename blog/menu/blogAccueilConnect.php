@@ -4,15 +4,14 @@ setcookie('pseudo', $_SESSION['pseudo'], time() + 60*60*24*30, null, null, false
 if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) 
  if(isset($_POST['id']) AND !empty($_POST['id']))
   if(isset($_POST['droits']) AND !empty($_POST['droits']))
-  
-
-  
-  
   {  
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['id'] = $_POST['id'];
     $_SESSION['droits'] = $_POST['droits'];
     
+                              if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
+                              header("Location: ../view/admin/news.fra.php?id=".$_SESSION['droits']);
+                            
     
   }
 ?>
@@ -31,7 +30,7 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
   <body>
     <header>
       <div class="container">
-      <h1>Le blog de Jean...</h1><span id="bonjSession">Bonjour <?= $_SESSION['droits'];?></span>
+      <h1>Le blog de Jean...</h1><span id="bonjSession">Bonjour <?= $_SESSION['pseudo'];?></span>
     </div>
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
