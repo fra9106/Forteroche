@@ -8,12 +8,14 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['id'] = $_POST['id'];
     $_SESSION['droits'] = $_POST['droits'];
-    
-                              if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-                              header("Location: ../view/admin/news.fra.php?id=".$_SESSION['droits']);
+
+                              
                             
     
   }
+
+  if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
+                              header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
 ?>
 <!DOCTYPE html>
 <html lang="fr">
