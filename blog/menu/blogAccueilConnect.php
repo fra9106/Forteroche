@@ -3,6 +3,7 @@ session_start();
 setcookie('pseudo', $_SESSION['pseudo'], time() + 60*60*24*30, null, null, false, true);
 if(isset($_POST['pseudo']) AND !empty($_POST['pseudo'])) 
  if(isset($_POST['id']) AND !empty($_POST['id']))
+  if(isset($_POST['droits']) AND !empty($_POST['droits']))
   
 
   
@@ -10,7 +11,7 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
   {  
     $_SESSION['pseudo'] = $_POST['pseudo'];
     $_SESSION['id'] = $_POST['id'];
-  
+    $_SESSION['droits'] = $_POST['droits'];
     
     
   }
@@ -30,7 +31,7 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
   <body>
     <header>
       <div class="container">
-      <h1>Le blog de Jean...</h1><span id="bonjSession">Bonjour <?= $_SESSION['pseudo'];?></span>
+      <h1>Le blog de Jean...</h1><span id="bonjSession">Bonjour <?= $_SESSION['droits'];?></span>
     </div>
     </header>
     <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
