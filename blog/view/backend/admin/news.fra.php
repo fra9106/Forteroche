@@ -62,8 +62,10 @@ try { $bdd = new PDO('mysql:host=localhost;dbname=openclass;charset=utf8', 'root
 </form>
 
 <br />
-<a href="../../../menu/blogAccueil.php">Accueil</a>
+
+<a href="../../../menu/blogAccueilConnect.php">Accueil</a>
 <a href="#">Crypto</a>
+
 <?php
 
 ?>
