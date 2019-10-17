@@ -98,7 +98,6 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
     <h2>Billet simple pour l’Alaska </h2>
     <p>Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
     <button type="submit" onClick="javascript:document.location.href='../index.php'" class="btn btn-secondary">Je veux lire !</button><br><br>
-    <button type="submit" onClick="javascript:document.location.href='../view/backend/admin/news.fra.php'" class="btn btn-secondary">Admin</button>
   </div>
 </div>
     </div>
