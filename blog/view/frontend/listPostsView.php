@@ -17,12 +17,12 @@
 
          <div class="news">
          	<h4>
-         		<?= htmlspecialchars($data['title']) ?>
+         		<?=($data['title']) ?>
          		<em>le <?= $data['creation_date_fr'] ?></em>
          	</h4>
          	
          	<p>
-         		<?= nl2br(htmlspecialchars($data['content'])) ?><br>
+         		<?= nl2br($data['content']) ?><br>
                 <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
 
                 
