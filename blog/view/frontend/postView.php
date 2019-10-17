@@ -22,7 +22,7 @@ session_start();
          	</p>
          </div>
 
-                <?php  if (isset($_SESSION['pseudo'])) { ?> 
+                <?php  if(isset($_SESSION['pseudo'])) { ?> 
                
 
                 <h2>Votre commentaire</h2><br/>

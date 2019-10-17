@@ -10,6 +10,7 @@ function listPosts() //fonction liste chapitre et affiche par listPostView.php
 	$posts = $postManager->getPosts();//appel la fonction de récupération de tous les chapitres rangés en ordre de date descendante de cet objet
 
 	require('view/frontend/listPostsView.php'); //chargement de la page qui affichera la liste des chapitre
+	
 }
 
 function post() //fonction de récupération des chapitre ET ses commentaires par postView.php
@@ -22,6 +23,7 @@ function post() //fonction de récupération des chapitre ET ses commentaires pa
 	$comments = $commentManager->getComments($_GET['id']);
 
 	require('view/frontend/postView.php');
+	
 }
 
 function addComment($idBillet, $comment) // teste le retour de la requete postComment...
@@ -35,5 +37,29 @@ function addComment($idBillet, $comment) // teste le retour de la requete postCo
 
 	}else{ header('Location: index.php?action=post&id=' . $idBillet); // sinon on peut admirer son joli commentaire :)
 
+	}
+
+
 }
+
+function editChapitre() //fonction affiche chapitre
+{
+	$chapManager = new PostManager();// création objet postManager
+
+	$inser = $postManager->postChapitres($title, $content);
+
+	if ($inser === false){ //si le commentaire n'arrive pas à la bdd...
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible d\'ajouter le commentaire !');// on arrête le script avec un die
+
+	}else{ header('Location: index.php?action=post&id=' . $title); // sinon on peut admirer son joli commentaire :)
+
+	}
+
+
+
+	//require('view/frontend/listPostsView.php'); //chargement de la page qui affichera la liste des chapitre
+	
 }
+
+
+
