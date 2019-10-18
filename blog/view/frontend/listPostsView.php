@@ -1,6 +1,8 @@
 <?php $title = 'Chapitres'; ?>
 <!--affichage liste des chapitres mis en ligne-->
-<?php ob_start(); ?>
+<?php ob_start();
+session_start(); 
+?>
 
  <div class="vuChapComment">
       <div align="center">
