@@ -13,35 +13,34 @@ catch (Exception $e)
 if(isset($_POST['valider'])) {
    $pseudo = htmlspecialchars($_POST['pseudo']);
    $mail = htmlspecialchars($_POST['mail']);
-   $mail2 = htmlspecialchars($_POST['mail2']);
-   $mdp =sha1($_POST['mdp']);
-   $mdp2 = sha1($_POST['mdp2']);
+   
+   $mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+
    $droits = 0;
-   if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mail2']) AND !empty($_POST['mdp']) AND !empty($_POST['mdp2'])) {
+   if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mdp'])) {
       $pseudolength = strlen($pseudo);
       if($pseudolength > 2) {
-         if($mail == $mail2) {
+    
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                $reqmail = $bdd->prepare("SELECT * FROM users WHERE mail = ?");
                $reqmail->execute(array($mail));
                $mailexist = $reqmail->rowCount();
                if($mailexist == 0) {
-                  if($mdp == $mdp2) {
+            
                      $insertmbr = $bdd->prepare("INSERT INTO users(pseudo, mail, motdepasse, droits) VALUES(?, ?, ?, ?)");
                      $insertmbr->execute(array($pseudo, $mail, $mdp, $droits));
                      $erreur = "Votre compte a bien été créé !";
-                  } else {
-                     $erreur = "Vos mots de passes ne correspondent pas !";
-                  }
+            
+                    
+                
                } else {
                   $erreur = "Adresse mail déjà utilisée !";
                }
             } else {
                $erreur = "Adresse mail non valide !";
             }
-         } else {
-            $erreur = "Adresses mail non correspondantes !";
-         }
+    
+          
       } else {
          $erreur = "Votre pseudo doit contenir plus de 2 caractères !";
       }
@@ -114,14 +113,7 @@ if(isset($_POST['valider'])) {
                <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
             </td>
          </tr>
-         <tr>
-            <td align="right">
-               <label for="mail2">Confirmation du mail :</label><br>
-            </td>
-            <td>
-               <input type="email" placeholder="Confirmez votre mail" id="mail2" name="mail2" value="<?php if(isset($mail2)) { echo $mail2; } ?>" /><br>
-            </td>
-         </tr>
+         
          <tr>
             <td align="right">
                <label for="mdp">Mot de passe :</label><br>
@@ -130,14 +122,7 @@ if(isset($_POST['valider'])) {
                <input type="password" placeholder="Entrez un mot de passe" id="mdp" name="mdp" /><br>
             </td>
          </tr>
-         <tr>
-            <td align="right">
-               <label for="mdp2">Confirmation du mot de passe :</label><br><br><br>
-            </td>
-            <td>
-               <input type="password" placeholder="Confirmez mot de passe" id="mdp2" name="mdp2" /><br><br><br>
-            </td>
-         </tr>
+         
          <tr>
             <td align="right">
              <button type="submit"name="valider"class="btn btn-primary">Je créé mon compte !</button>

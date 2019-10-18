@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 //setcookie('pseudo', $_SESSION['pseudo'], time() + 60*60*24*30, null, null, false, true);
 
 try
@@ -11,39 +11,46 @@ catch (Exception $e)
       die('Erreur : ' .$e->getMessage());
 }
 
-include_once('remember.php');
-
 if(isset($_POST['connexion'])) {
-   $mailconnect = htmlspecialchars($_POST['mailconnect']);
-   $mdpconnect = sha1($_POST['mdpconnect']);
-   
-   if(!empty($mailconnect) AND !empty($mdpconnect)){
-      $requser = $bdd->prepare("SELECT * FROM users WHERE mail = ? AND motdepasse = ?");
-      $requser->execute(array($mailconnect, $mdpconnect));
-      $userexist = $requser->rowCount();
-      if($userexist == 1) 
-      {
-         if(isset($_POST['rememberme'])) {
-            setcookie('email',$mailconnect,time()+ 60*60*24*30,null,null,false,true);
-            setcookie('password',$mdpconnect,time()+ 60*60*24*30,null,null,false,true);
-      }
-       
+$pseudo = htmlspecialchars($_POST['pseudo']);
 
-         $userinfo = $requser->fetch();
-         $_SESSION['id'] = $userinfo['id'];
-         $_SESSION['pseudo'] = $userinfo['pseudo'];
-         $_SESSION['mail'] = $userinfo['mail'];
-         $_SESSION['droits'] = $userinfo['droits'];
-         header("Location: blogAccueilConnect.php?id=");
-      } else {
-         $erreur = "Mauvais mail ou mot de passe !";
-      }
-   } else {
-      $erreur = "Tous les champs doivent être remplis !";
-   } 
-if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-  header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
+$req = $bdd->prepare('SELECT id, motdepasse, droits FROM users WHERE pseudo = :pseudo');
+$req->execute(array('pseudo' => $pseudo));
+$resultat = $req->fetch();
+
+$isPasswordCorrect = password_verify($_POST['mdp'], $resultat['motdepasse']);
+
+
+if (!$resultat)
+{
+    echo 'Mauvais identifiant ou mot de passe !';
 }
+else
+{
+    if ($isPasswordCorrect) {
+        session_start();
+        $_SESSION['id'] = $resultat['id'];
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['droits'] = $resultat['droits'];
+        header("Location: blogAccueilConnect.php?id=");
+       
+    }
+    else {
+        echo 'Mauvais identifiant ou mot de passe !';
+    }
+    if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
+    header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
+
+}
+
+}
+
+
+
+
+
+
+
 ?>
 <html lang="fr">
 <head>
@@ -87,12 +94,9 @@ if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1')
          <h2 style="color:#760001;">Connexion</h2>
          <br /><br />
          <form method="POST" action="">
-            <input type="email" name="mailconnect" placeholder="Mail" />
-            <input type="password" name="mdpconnect" placeholder="Mot de passe" />
+            <input type="text" name="pseudo" placeholder="pseudo" />
+            <input type="password" name="mdp" placeholder="Mot de passe" />
             <br /><br />
-            <input type="checkbox" name="rememberme" id="remembercheckbox" /><label for="remembercheckbox">Rester connecté </label>
-            <br /><br />
-      
             <button type="submit"name="connexion"class="btn btn-primary">Je me connecte!</button>
          </form>
          <?php
