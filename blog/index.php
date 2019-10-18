@@ -28,14 +28,12 @@
   	}
   }
 
-  elseif ($_GET['action'] == 'postChapitres') {
+  elseif ($_GET['action'] == 'editChapitre') {
     if (isset($_POST['envoi_message']) AND isset($_POST['title']) AND isset($_POST['content'])) 
          {
-          $title = ($_POST['title']);
-          $content = ($_POST['content']);
           if(!empty(trim($_POST['title'])) AND !empty(trim($_POST['content'])))
           {         
-           postChapitres();
+           editChapitre(); 
         }else{ $erreur = "Oups... Vous n'avez pas saisi de message!";
      }             
   }
