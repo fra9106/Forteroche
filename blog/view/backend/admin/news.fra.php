@@ -15,8 +15,8 @@ session_start();
 
   <br />
   <?php
-          //$title = ($_POST['title']);
-          //$content = ($_POST['content']);
+    
+        
 
   ?>
   <h3>Envoyer un chapitre</h3>

@@ -7,7 +7,7 @@ class PostManager extends Manager // héritage class Manager
 	{
 		
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 10');
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 25');
 
 		return $req;
 	}
@@ -26,7 +26,7 @@ class PostManager extends Manager // héritage class Manager
 	public function postChapitres($title, $content) // méthode envoit chapitre à la bdd
 	{
 		$db = $this->dbConnect();
-		$inserChap = $db->prepare("INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())");
+		$inserChap = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
         $inser = $inserChap->execute(array($title, $content));
 		
 		return $inser;

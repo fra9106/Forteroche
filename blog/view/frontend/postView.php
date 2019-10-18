@@ -25,7 +25,7 @@ session_start();
                 <?php  if(isset($_SESSION['pseudo'])) { ?> 
                
 
-                <h2>Votre commentaire</h2><br/>
+                <h2>Mon commentaire :</h2><br/>
 
          <form action="index.php?action=addComment&amp;id=<?=$post['id'] ?>"method="post">
             
@@ -33,8 +33,8 @@ session_start();
                  <textarea id="comment" name="comment" placeholder="Votre texte"></textarea>
              </div><br>
              <div>
-             <button type="submit"class="btn btn-primary">GO!</button>
-             </div><br>
+             <button type="submit"class="btn btn-primary">J'envoie mon commentaire !</button><br><br>
+             </div>
          </form>
         <?php 
           }else{ echo '<h2 class="error">Pour l\'ajout d\'un commentaire, veuillez vous connecter !</h2>'; 
@@ -43,14 +43,17 @@ session_start();
           ?>
          
 
-        <div class="news">
-            <h2>Vos commentaires</h2>
+        <div>
+            <h2>Vos commentaires :</h2><br>
             <?php
             while ($comment = $comments->fetch()) //renvoit dans $comment les infos du commentaire
             {
-            ?>     <!--affiche l'auteur la date et le commentaire-->
+            ?> <!--affiche l'auteur la date et le commentaire-->
+            <div class="vuChapComment"><br>
                 <p>le <?= $comment['comment_date_fr'] ?></p>
-                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+                <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p><br>
+                <button type="submit"class="btn btn-primary">Signaler ce commentaire !</button><br><br>
+            </div>
             <?php
             }
             ?>
