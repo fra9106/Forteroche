@@ -32,3 +32,5 @@ function suppChapitre($postId)
 		header('Location: index.php');
 	}
 }
+
+

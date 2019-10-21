@@ -47,6 +47,12 @@ require('controller/backend.php');
     elseif ($_GET['action'] == 'suppChapitre') {
       suppChapitre($_GET['id']);
     }
+
+    elseif ($_GET['action'] == 'signalement') {
+      if ((isset($_GET['id'])) && (!empty($_GET['id']))){
+        signal($_GET['id']);
+      }else{ echo 'erreur !!!';}
+    }
   
 
  }else {

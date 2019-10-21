@@ -4,21 +4,21 @@
 
 try
 {
-   $bdd = new PDO('mysql:host=localhost;dbname=openclass;charset=utf8', 'root', '');
+   $bdd = new PDO('mysql:host=localhost;dbname=openclass;charset=utf8', 'root', ''); // model
 }
 catch (Exception $e)
 {
       die('Erreur : ' .$e->getMessage());
 }
 
-if(isset($_POST['connexion'])) {
+if(isset($_POST['connexion'])) { //index veririf pseudo, mot de passe if isset et nt empty
 $pseudo = htmlspecialchars($_POST['pseudo']);
 
-$req = $bdd->prepare('SELECT id, motdepasse, droits FROM users WHERE pseudo = :pseudo');
+$req = $bdd->prepare('SELECT id, motdepasse, droits FROM users WHERE pseudo = :pseudo');// model
 $req->execute(array('pseudo' => $pseudo));
 $resultat = $req->fetch();
 
-$isPasswordCorrect = password_verify($_POST['mdp'], $resultat['motdepasse']);
+$isPasswordCorrect = password_verify($_POST['mdp'], $resultat['motdepasse']); // controller
 
 
 if (!$resultat)

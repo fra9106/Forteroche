@@ -21,5 +21,14 @@ class CommentManager extends Manager // héritage class Manager
 		return $affectedLines;
 	}
 
+	public function signalement($commentId)
+	{
+		$db = $this->dbConnect();
+		$req = $db->prepare('UPDATE comments SET signalement = 1 WHERE id = ?');
+		$req->execute(array($commentId));
+
+		return $req;
+	}
+
 	
 }
