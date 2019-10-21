@@ -33,5 +33,12 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
+	public function deleletChapitre($postId) {
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');
+        $supprimerChapitre = $req->execute(array($postId));
+        return $supprimerChapitre;
+    }
+
 	
 }

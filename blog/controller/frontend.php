@@ -44,20 +44,6 @@ function addComment($idBillet, $comment) // teste le retour de la requete postCo
 
 }
 
-function editChapitre($title, $content) //fonction affiche chapitre
-{
-	$chapEdit = new PostManager();// création objet postManager
-
-$chapitre = $chapEdit->postChapitre($title, $content);
-	
-	if($chapitre === false) {
-		die('Je crois que ça va pas être possible...');
-	}else{
-		header('Location: index.php');
-	}
-	
-	 //chargement de la page qui affichera la liste des chapitre
-}
 
 
 

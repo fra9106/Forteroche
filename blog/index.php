@@ -1,7 +1,8 @@
 <?php 
  // ---------routeur
 
- require('controller/frontend.php'); //appelle la page pour pouvoir fonctionner
+require('controller/frontend.php'); //appelle la page pour pouvoir fonctionner
+require('controller/backend.php');
 
  if (isset($_GET['action'])) {
  	if ($_GET['action'] == 'listPosts') {
@@ -41,6 +42,12 @@
   }
 
   }
+
+
+    elseif ($_GET['action'] == 'suppChapitre') {
+      suppChapitre($_GET['id']);
+    }
+  
 
  }else {
  	listPosts();

@@ -37,7 +37,7 @@ session_start();
              </div>
          </form>
         <?php 
-          }else{ echo '<h2 class="error">Pour l\'ajout d\'un commentaire, veuillez vous connecter !</h2>'; 
+          }else{ echo '<h3 class="error">Pour l\'ajout d\'un commentaire, veuillez vous connecter !</h3>'; 
 
             }
           ?>
