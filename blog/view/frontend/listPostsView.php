@@ -2,6 +2,7 @@
 <!--affichage liste des chapitres mis en ligne-->
 <?php ob_start();
 session_start(); 
+//var_dump($_POST['title']);
 ?>
 
  <div class="vuChapComment">
@@ -17,7 +18,7 @@ session_start();
 
         ?>  
 
-         <div class="news">
+         <div class="news"> 
          	<h4>
          		<?=($data['title']) ?>
          		<em>le <?= $data['creation_date_fr'] ?></em>

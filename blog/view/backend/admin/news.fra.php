@@ -16,15 +16,13 @@ session_start();
   <br />
   <?php
     
-        
-
   ?>
   <h3>Envoyer un chapitre</h3>
 
-  <form class="form"method="POST" action="">
+  <form class="form"method="post" action="../../../index.php?action=editChapitre&amp;id= ">
    <input type="text" placeholder="title" id="title" name="title" /><br><br><br>
    <textarea id="mytextarea" name="content"  rows="5" cols="50" placeholder="Votre message"></textarea><br><br>
-   <button type="submit"name="envoi_message"class="btn btn-primary">GO!</button>
+   <button type="submit" name="envoi_message"class="btn btn-primary">GO!</button>
    <?php if(isset($error)) { echo '<span style="color:#760001">' .$error. '</span>'; } ?>
  </form>
 

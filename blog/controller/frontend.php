@@ -4,6 +4,7 @@
 require_once('model/postManager.php');// chargement des classes
 require_once('model/commentManager.php');
 
+
 function listPosts() //fonction liste chapitre et affiche par listPostView.php
 {
 	$postManager = new PostManager();// création objet
@@ -45,10 +46,17 @@ function addComment($idBillet, $comment) // teste le retour de la requete postCo
 
 function editChapitre($title, $content) //fonction affiche chapitre
 {
-	$chapManager = new PostManager();// création objet postManager
+	$chapEdit = new PostManager();// création objet postManager
 
-	$inser = $chapManager->postChapitres($title, $content);
-	require('view/frontend/listPostsView.php'); //chargement de la page qui affichera la liste des chapitre
+$chapitre = $chapEdit->postChapitre($title, $content);
+	
+	if($chapitre === false) {
+		die('Je crois que ça va pas être possible...');
+	}else{
+		header('Location: index.php');
+	}
+	
+	 //chargement de la page qui affichera la liste des chapitre
 }
 
 

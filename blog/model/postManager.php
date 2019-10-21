@@ -23,13 +23,13 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
-	public function postChapitres($title, $content) // méthode envoit chapitre à la bdd
+	public function postChapitre($title, $content) // méthode envoit chapitre à la bdd
 	{
 		$db = $this->dbConnect();
 		$inserChap = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
-        $inser = $inserChap->execute(array($title, $content));
+        $chapitre = $inserChap->execute(array($title, $content));
 		
-		return $inser;
+		return $chapitre;
 
 	}
 
