@@ -43,6 +43,12 @@ require('controller/backend.php');
 
   }
 
+    elseif (isset($_GET['action'])) {  
+      if ($_GET['action'] == 'listChapAdmin') {
+      listChapAdmin(); 
+    }
+  }
+
 
     elseif ($_GET['action'] == 'suppChapitre') {
       suppChapitre($_GET['id']);
@@ -51,7 +57,7 @@ require('controller/backend.php');
     elseif ($_GET['action'] == 'signalement') {
       if ((isset($_GET['id'])) && (!empty($_GET['id']))){
         signal($_GET['id']);
-      }else{ echo 'erreur !!!';}
+      }else{ $erreur = "Oups....erreur de signalement !!!";}
     }
   
 

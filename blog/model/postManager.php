@@ -33,6 +33,15 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
+	public function getChapitresAdmin() // méthode de récupération de tous les chapitres rangés en ordre de date descendante
+	{
+		
+		$db = $this->dbConnect();
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 25');
+
+		return $req;
+	}
+
 	public function deleletChapitre($postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');

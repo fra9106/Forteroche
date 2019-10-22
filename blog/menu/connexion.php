@@ -39,7 +39,7 @@ else
         echo 'Mauvais identifiant ou mot de passe !';
     }
     if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-    header("Location:../view/backend/admin/news.fra.php?id=".$_SESSION['droits']);
+    header("Location:../view/backend/redacChap.php?id=".$_SESSION['droits']);
 
 }
 
