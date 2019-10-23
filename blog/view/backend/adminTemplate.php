@@ -4,9 +4,9 @@
 	<title><?= $title ?></title>
 	<meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="stylesheet" href="../../../public/css/style.css">
+  <link rel="stylesheet" href="../blog/public/css/style.css">
   <script src="//cdn.tinymce.com/4/tinymce.min.js"></script> 
-  <script>tinymce.init({ selector:'.mytextarea', content_css : '../../../public/css/style.css', 
+  <script>tinymce.init({ selector:'.mytextarea', content_css : '../blog/public/css/style.css', 
         language_url: 'https://olli-suutari.github.io/tinyMCE-4-translations/fr_FR.js', language: 'fr_FR' });</script>
   
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">

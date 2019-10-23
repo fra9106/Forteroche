@@ -7,7 +7,7 @@ class PostManager extends Manager // héritage class Manager
 	{
 		
 		$db = $this->dbConnect();
-		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 25');
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
 
 		return $req;
 	}
@@ -33,11 +33,31 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
-	public function deleletChapitre($postId) {
+	public function getChapitresAdmin() // méthode de récupération de tous les chapitres rangés en ordre de date descendante
+	{
+		
+		$db = $this->dbConnect();
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
+
+		return $req;
+	}
+
+	/*public function deleletChapitre($postId) {
         $bdd = $this->dbConnect();
         $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');
         $supprimerChapitre = $req->execute(array($postId));
         return $supprimerChapitre;
+    }*/
+
+    public function getChapitre($postId)
+    {
+    	$db = $this->dbConnect();
+    	$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
+		$req->execute(array($postId));
+		//$chap = $req->fetch();
+    	return $req;
+		//return $chap;
+
     }
 
 	
