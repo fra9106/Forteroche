@@ -41,11 +41,20 @@ if ($_GET['action'] == 'chapitAdmin') {
   }
 } 
 
+<<<<<<< HEAD
 if ($_GET['action'] == 'signalement') {
   if ((isset($_GET['id'])) && (!empty($_GET['id']))){
     signal($_GET['id']);
   }else{ $erreur = "Oups....erreur de signalement !!!";}
 }
+=======
+    elseif (isset($_GET['action'])) {  
+      if ($_GET['action'] == 'listChapAdmin') {
+      listChapAdmin(); 
+    }
+  }
+
+>>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
 
 if ($_GET['action'] == 'editChapitre') {
   if (isset($_POST['envoi_message']) AND isset($_POST['title']) AND isset($_POST['content'])) 
@@ -59,7 +68,16 @@ if ($_GET['action'] == 'editChapitre') {
  }             
 }
 
+<<<<<<< HEAD
 }
+=======
+    elseif ($_GET['action'] == 'signalement') {
+      if ((isset($_GET['id'])) && (!empty($_GET['id']))){
+        signal($_GET['id']);
+      }else{ $erreur = "Oups....erreur de signalement !!!";}
+    }
+  
+>>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
 
 if (isset($_GET['action'])) {  
   if ($_GET['action'] == 'listChapAdmin') {

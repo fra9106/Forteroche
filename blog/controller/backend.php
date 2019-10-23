@@ -26,6 +26,11 @@ function listChapAdmin() //fonction liste chapitre et affiche par listPostView.p
 
 	require('view/backend/listChapAdmin.php');
 } //chargement de la page qui affichera la liste des chapitre
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
 
 
 
