@@ -54,10 +54,10 @@ if ($_GET['action'] == 'editChapitre') {
     $content = ($_POST['content']);
     if(!empty(trim($_POST['title'])) AND !empty(trim($_POST['content'])))
     {         
-     editChapitre($_POST['title'], $_POST['content']); 
-   }else{ $erreur = "Oups... Vous n'avez pas saisi de message!";
- }             
-}
+      editChapitre($_POST['title'], $_POST['content']); 
+      }else{ $erreur = "Oups... Vous n'avez pas saisi de message!";
+    }             
+  }
 
 }
 
@@ -78,4 +78,5 @@ if ($_GET['action'] == 'modifChapitre') {
     modifChapitre($_POST['title'], $_POST['content'], $_GET['id']);
   }
 }
+
 

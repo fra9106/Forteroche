@@ -57,9 +57,7 @@ class PostManager extends Manager // héritage class Manager
 		$req->execute(array($postId));
 	
     	return $req;
-		
-
-    }
+	}
 
      public function updateChapitre($title, $content, $postId) // méthode envoit chapitre à la bdd
 	{
@@ -69,8 +67,4 @@ class PostManager extends Manager // héritage class Manager
 		return $chapOk;
 
 	}
-
-
-	    
-	
 }

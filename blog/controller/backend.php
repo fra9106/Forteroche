@@ -44,9 +44,9 @@ function chapitAdmin() //fonction de récupération chapitre admin
 	require('view/backend/chapitreAdmin.php');
 }
 
-function modifChapitre($title, $content,$postId) //fonction affiche chapitre
+function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
 {
-	$chapModif = new PostManager();// création objet postManager
+	$chapModif = new PostManager();
 
 	$chapOk = $chapModif->updateChapitre($title, $content,$postId);
 	
@@ -55,8 +55,6 @@ function modifChapitre($title, $content,$postId) //fonction affiche chapitre
 	}else{
 		header('Location: index.php?action=listChapAdmin');
 	}
-	
-	 //chargement de la page qui affichera la liste des chapitre
 }
 
 
