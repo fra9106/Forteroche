@@ -19,13 +19,10 @@ function post() //fonction de récupération des chapitre ET ses commentaires pa
 	$postManager = new PostManager();
 	$commentManager = new CommentManager();
 
-
 	$post = $postManager->getPost($_GET['id']);
 	$comments = $commentManager->getComments($_GET['id']);
 
 	require('view/frontend/postView.php');
-	
-	
 }
 
 function addComment($idBillet, $comment) // teste le retour de la requete postComment...
@@ -40,20 +37,17 @@ function addComment($idBillet, $comment) // teste le retour de la requete postCo
 	}else{ header('Location: index.php?action=post&id=' . $idBillet); // sinon on peut admirer son joli commentaire :)
 
 	}
-
-
 }
 
 function signal($commentId)
 {
 	$commentManager = new CommentManager();
-
 	$signal = $commentManager->signalement($commentId);
 
 	if($signal === false) {
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de signaler !');
-	}else{header('Location: index.php');
-
+	}else{ header('Location: index.php');
+	
 	}
 }
 
