@@ -10,6 +10,7 @@ session_start();
    <h2>Bonjour Jean !</h2><br />
     <h3><a href="../../menu/blogAccueilConnect.php">Accueil</a></h3>
     <h3><a href="../../index.php?action=listChapAdmin">Chapitres</a></h3>
+    <h3><a href="../../index.php?action=commentsAdmin&amp;signalement=1">Commentaires signalés</a></h3>
    <p>
     Bienvenu chez toi!
   </p>

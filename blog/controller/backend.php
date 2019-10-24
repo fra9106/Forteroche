@@ -57,5 +57,13 @@ function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
 	}
 }
 
+function commentsAdmin() //fonction de récupération chapitre admin
+{ 	
+	$commentManager = new CommentManager();
+	$comments = $commentManager->getCommentSignal($_GET['signalement']);
+	
+	require('view/backend/commentsAdmin.php');
+}
+
 
 

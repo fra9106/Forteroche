@@ -9,8 +9,8 @@ session_start();
   <div align="center">
    <h2>Billet simple pour l'Alaska</h2>
    <em><h3>Derniers chapitres...</h3></em>
-   <a href="menu/blogAccueil.php">retour à la page d'accueil</a>
-
+   <a href="menu/blogAccueil.php">Retour à la page d'accueil</a><br>
+   <a href="view/backend/redacChap.php">Retour à la page rédacChap</a>
 
    <?php
    while ($data = $posts->fetch())

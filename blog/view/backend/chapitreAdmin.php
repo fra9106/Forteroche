@@ -15,24 +15,27 @@ session_start();
 			
 				 <h3>Modifier chapitre</h3>
 
-  <form class="form"method="post" action="index.php?action=modifChapitre&amp;id=<?=$data['id'] ?>">
-  	<textarea type="text" name= "date" rows="1" placeholder="date"><?= $data['creation_date_fr'] ?></textarea><br><br><br>
-   <textarea type="text" name="title" rows="1" placeholder="title">ID : <?= $data['id']?> Titre : <?=$data['title'] ?></textarea><br><br><br>
-   <textarea class="mytextarea" name="content"  rows="5" cols="50" placeholder="content"><?=$data['content'] ?></textarea><br><br>
-   <button type="submit" name="suppChapitre"class="btn btn-primary">Modifie ton chapitre !</button><br>
-
+<form class="form"method="post" action="index.php?action=modifChapitre&amp;id=<?=$data['id'] ?>">
+  <h4><em>Id : </em><?= $data['id'] ?></h4><br>
+  <textarea type="text" name="title" rows="1" placeholder="title"><?=$data['title'] ?></textarea><br><br>
+  <textarea class="mytextarea" name="content"  rows="5" cols="50" placeholder="content"><?=$data['content'] ?></textarea><br><br>
+  <button type="submit" name="suppChapitre"class="btn btn-primary">Modifie ton chapitre !</button><br>
 </form>
 
+			</div>
 
-	
+
+			<div class="news">
+
 				 <h3>Supprimer chapitre</h3>
 
-  <form class="form"method="post" action="index.php?action=suppChapitre&amp;id=<?=$data['id'] ?>">
-  	<textarea type="text" name= "date" rows="1" placeholder="date"><?= $data['creation_date_fr'] ?></textarea><br><br><br>
-   <textarea type="text" name="title" rows="1" placeholder="title">ID : <?= $data['id']?> Titre : <?=$data['title'] ?></textarea><br><br><br>
-   <textarea class="mytextarea" name="content"  rows="5" cols="50" placeholder="content"><?=$data['content'] ?></textarea><br><br>
-   <button type="submit" name="suppChapitre"class="btn btn-primary">Supprime ton chapitre !</button><br>
+<form class="form"method="post" action="index.php?action=suppChapitre&amp;id=<?=$data['id'] ?>">
+  <textarea type="text" name= "date" rows="1" placeholder="date"><?= $data['creation_date_fr'] ?></textarea><br><br><br>
+  <textarea type="text" name="title" rows="1" placeholder="title"><?=$data['title'] ?></textarea><br><br><br>
+  <textarea class="mytextarea" name="content"  rows="5" cols="50" placeholder="content"><?=$data['content'] ?></textarea><br><br>
+  <button type="submit" name="suppChapitre"class="btn btn-primary">Supprime ton chapitre !</button><br>
 </form>
+			</div>
 
 			<?php
 		}
