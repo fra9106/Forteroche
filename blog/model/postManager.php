@@ -37,11 +37,20 @@ class PostManager extends Manager // héritage class Manager
 	{
 		
 		$db = $this->dbConnect();
+<<<<<<< HEAD
 		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
+=======
+<<<<<<< HEAD
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 50');
+=======
+		$req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 25');
+>>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
+>>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 
 		return $req;
 	}
 
+<<<<<<< HEAD
 	public function deletChapitre($dataId) {
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM posts WHERE id = ?');
@@ -49,15 +58,33 @@ class PostManager extends Manager // héritage class Manager
         //$supprimerChapitre = $req->fetch();
         return $req;
     }
+=======
+<<<<<<< HEAD
+	/*public function deleletChapitre($postId) {
+=======
+	public function deleletChapitre($postId) {
+>>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
+        $bdd = $this->dbConnect();
+        $req = $bdd->prepare('DELETE FROM posts WHERE id = ?');
+        $supprimerChapitre = $req->execute(array($postId));
+        return $supprimerChapitre;
+    }*/
+>>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 
     public function getChapitre($postId)
     {
     	$db = $this->dbConnect();
     	$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
 		$req->execute(array($postId));
+<<<<<<< HEAD
 	
     	return $req;
 		
+=======
+		//$chap = $req->fetch();
+    	return $req;
+		//return $chap;
+>>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 
     }
 

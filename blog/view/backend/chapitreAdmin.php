@@ -6,12 +6,17 @@ session_start();
 <div class="vuChapComment">
 	<div align="center">
 		<h2>Billet simple pour l'Alaska</h2>
+<<<<<<< HEAD
 		<p><a href="index.php?action=listChapAdmin">Retour à la liste des Chapitres</a></p><br>
+=======
+		<p><a href="index.php">Retour à la liste des Chapitres</a></p><br>
+>>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 		<?php
 		while ($data = $chapy->fetch())
 		{
 			?>
 			<div class="news">
+<<<<<<< HEAD
 			
 				 <h3>Modifier ou supprimer chapitre</h3>
 
@@ -23,6 +28,17 @@ session_start();
   </form>
 
 
+=======
+				<h3>
+					<?= ($data['title']) ?>
+					<em>le <?= $data['creation_date_fr'] ?></em>
+				</h3>
+
+				<p>
+					<?= nl2br($data['content']) ?>
+				</p>
+			</div>
+>>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 			<?php
 		}
 		$chapy->closeCursor();	
