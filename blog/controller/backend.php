@@ -11,7 +11,6 @@ function editChapitre($title, $content) //fonction rédation chapitre
 	$chapitre = $chapEdit->postChapitre($title, $content);//appel fonction (retour model)
 	
 	if($chapitre === false) {
-<<<<<<< HEAD
 		die('Je crois que ça va pas être possible d \'ajouter un chapitre...');// condition si false on arrête le script
 	}else{//si ok chargement de la page qui affichera la liste des chapitres
 		header('Location: index.php?action=listChapAdmin');
@@ -26,31 +25,6 @@ function listChapAdmin() //fonction liste chapitre admin
 }
 
 function suppChapitre($dataId)// fonction supprime chapitre 
-=======
-		die('Je crois que ça va pas être possible d \'ajouter un chapitre...');
-	}else{
-		header('Location: index.php?action=listChapAdmin');
-	}
-	
-}	 //chargement de la page qui affichera la liste des chapitre
-
-function listChapAdmin() //fonction liste chapitre et affiche par listPostView.php
-{
-	$postManager = new PostManager();// création objet
-	$posts = $postManager->getChapitresAdmin();//appel la fonction de récupération de tous les chapitres rangés en ordre de date descendante de cet objet
-
-	require('view/backend/listChapAdmin.php');
-} //chargement de la page qui affichera la liste des chapitre
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 1df085705ffc6ec773bb95b244b9884e78198fb8
-
-
-
-/*function suppChapitre($postId) 
->>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 {
 	$supprime = new PostManager();
 	$deletedPost = $supprime->deletChapitre($dataId);
@@ -60,15 +34,6 @@ function listChapAdmin() //fonction liste chapitre et affiche par listPostView.p
 	}else{
 		header('Location: index.php?action=listChapAdmin');
 	}
-}*/
-
-function chapitAdmin() //fonction de récupération chapitre par id
-{ 	
-	$postManager = new PostManager();
-	$chapy = $postManager->getChapitre($_GET['id']);
-	
-	require('view/backend/chapitreAdmin.php');
-	
 }
 
 function chapitAdmin() //fonction de récupération chapitre admin
@@ -78,5 +43,21 @@ function chapitAdmin() //fonction de récupération chapitre admin
 	
 	require('view/backend/chapitreAdmin.php');
 }
+
+function modifChapitre($title, $content,$postId) //fonction affiche chapitre
+{
+	$chapModif = new PostManager();// création objet postManager
+
+	$chapOk = $chapModif->updateChapitre($title, $content,$postId);
+	
+	if($chapOk === false) {
+		die('Je crois que ça va pas être possible de modifier un chapitre...');
+	}else{
+		header('Location: index.php?action=listChapAdmin');
+	}
+	
+	 //chargement de la page qui affichera la liste des chapitre
+}
+
 
 

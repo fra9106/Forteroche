@@ -36,13 +36,7 @@ function addComment($idBillet, $comment) // teste le retour de la requete postCo
 
 	}else{ header('Location: index.php?action=post&id=' . $idBillet); // sinon on peut admirer son joli commentaire :)
 
-<<<<<<< HEAD
 	}
-=======
-}
-
-
->>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 }
 
 function signal($commentId)
@@ -53,13 +47,8 @@ function signal($commentId)
 	if($signal === false) {
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de signaler !');
 	}else{ header('Location: index.php');
-<<<<<<< HEAD
 	
 	}
-=======
-
-}
->>>>>>> e304a763b360dd17d60dbca2716b34e16eaa5758
 }
 
 
