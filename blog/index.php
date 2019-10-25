@@ -80,14 +80,20 @@ if ($_GET['action'] == 'commentsAdmin') {
   if (isset($_GET['signalement']) && $_GET['signalement'] == '1') {
   commentsAdmin($_GET['signalement']);
   }else {
-    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun commentaires envoyé !';
+    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun commentaires supprimé !';
   }
 } 
 
-if ($_GET['action'] == 'suppComments') {
-  if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
-    suppComments($_GET['id']);
+/*if ($_GET['action'] == 'designalComments') {
+  if (isset($_GET['signalement']) && $_GET['signalement'] == '1') {
+  designalComments($_GET['signalement']);
+  }else {
+    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun commentaires désignalé !';
   }
+} */
+
+if ($_GET['action'] == 'designalComments') {
+  if ((isset($_GET['id'])) && (!empty($_GET['id']))){
+    designalComments($_GET['id']);
+  }else{ $erreur = "Oups....erreur de désignalement !!!";}
 }
-
-
