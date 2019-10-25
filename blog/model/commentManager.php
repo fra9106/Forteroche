@@ -37,5 +37,14 @@ class CommentManager extends Manager // héritage class Manager
 		return $comments;
 	}
 
+	public function deletComment($commentId)
+	{
+		$db = $this->dbConnect();
+        $req = $db->prepare('DELETE FROM comments WHERE id = ?');
+        $req->execute(array($commentId));
+        //$supprimerChapitre = $req->fetch();
+        return $req;
+	}
+
 	
 }

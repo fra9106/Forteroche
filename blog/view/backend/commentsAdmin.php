@@ -13,8 +13,10 @@ session_start();
             {
             ?> <!--affiche l'auteur la date et le commentaire-->
             <div class="news"><br>
+            	<p><em>Id <?= $comment['id'] ?></em></p>
                 <p>le <?= $comment['comment_date_fr'] ?></p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p><br>
+                <a href="index.php?action=suppComments&amp;id=<?=$comment['id'] ?>"><button type="submit" name="suppComments"class="btn btn-primary">Supprime ton commentaire !</button><br></a>
             </div>
             <?php
             }

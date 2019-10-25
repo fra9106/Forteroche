@@ -65,5 +65,15 @@ function commentsAdmin() //fonction de récupération chapitre admin
 	require('view/backend/commentsAdmin.php');
 }
 
+function suppComments($commentId)// fonction supprime chapitre 
+{
+	$supprime = new CommentManager();
+	$deletedComment = $supprime->deletComment($commentId);
 
+	if($deletedComment === false) {
+		die('Je crois que ça va pas être possible de supprimer un chapitre...');
+	}else{
+		header('Location: index.php?action=listChapAdmin');
+	}
+}
 

@@ -84,6 +84,10 @@ if ($_GET['action'] == 'commentsAdmin') {
   }
 } 
 
-
+if ($_GET['action'] == 'suppComments') {
+  if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
+    suppComments($_GET['id']);
+  }
+}
 
 
