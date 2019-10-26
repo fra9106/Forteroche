@@ -43,7 +43,7 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
         <a class="nav-link" href="blogAccueil.php"><span><i class="fa fa-home"></i></span> Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="deconnexion.php">Déconnexion</a>
+        <a class="nav-link" href="../index.php?action=deconnexion">Déconnexion</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">

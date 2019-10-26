@@ -92,7 +92,7 @@ function deconnexion()
 	setcookie('password','',time()-3600);
 	$_SESSION = array();
 	session_destroy();
-	header("Location: blogAccueil.php");
+	header("Location: ../blog/menu/blogAccueil.php");
 }
 
 
