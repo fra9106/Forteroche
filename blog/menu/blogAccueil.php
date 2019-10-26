@@ -3,7 +3,7 @@ session_start();
 
 if(isset($_SESSION['pseudo']))
   {
-  header("Location: blogAccueilConnect.php");
+  header("Location: ../menu/blogAccueilConnect.php");
   }
 ?>
 
@@ -39,7 +39,7 @@ if(isset($_SESSION['pseudo']))
         <a class="nav-link" href="blogAccueil.php"><span><i class="fa fa-home"></i></span> Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="connexion.php">Connexion</a>
+        <a class="nav-link" href="../index.php?action=displConnexion">Connexion</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="blogForm.php">Créer un compte</a>

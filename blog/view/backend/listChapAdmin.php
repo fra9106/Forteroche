@@ -1,5 +1,4 @@
-<?php $title = 'listChapitresAdmin'; ?>
-<!--affichage liste des chapitres mis en ligne-->
+<?php $title = 'liste des chapitres en ligne'; ?>
 <?php ob_start();
 session_start(); 
 
@@ -20,22 +19,22 @@ session_start();
 
     <div class="news"> 
       <h4>
-         <?=($data['title']) ?>
-         <em>le <?= $data['creation_date_fr'] ?></em>
+       <?=($data['title']) ?>
+       <em>le <?= $data['creation_date_fr'] ?></em>
      </h4>
 
      <p>
-         <?= nl2br($data['content']) ?><br>
-         <em><a href="index.php?action=chapitAdmin&amp;id=<?= $data['id'] ?>">Modifier</a></em>
+       <?= nl2br($data['content']) ?><br>
+       <em><a href="index.php?action=chapitAdmin&amp;id=<?= $data['id'] ?>">Modifier</a></em>
      </p>
- </div>
+   </div>
 
- <?php
-}
-$posts->closeCursor();	
-?>
+   <?php
+ }
+ $posts->closeCursor();	
+ ?>
 
-</div>
+  </div>
 </div>
 <?php
 

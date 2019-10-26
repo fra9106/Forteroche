@@ -1,8 +1,9 @@
 <?php 
 //--------Contoller
 
-require_once('model/postManager.php');// chargement des classes
-require_once('model/commentManager.php');
+require_once('model/PostManager.php');// chargement des classes
+require_once('model/CommentManager.php');
+require_once('model/MembersManager.php');
 
 
 function listPosts() //fonction liste chapitre et affiche par listPostView.php
@@ -49,6 +50,49 @@ function signal($commentId)
 	}else{ header('Location: index.php');
 	
 	}
+}
+
+function displconnexion()
+{
+	require('view/frontend/connectView.php');
+}
+
+function connexion($pseudo,$motdepass)
+{
+	$membre = new MembersManager();
+	$connect = $membre->getConnect($pseudo);
+	$isPasswordCorrect = password_verify($_POST['mdp'], $connect['motdepasse']);
+
+
+	if (!$connect)
+	{
+    	echo 'Mauvais identifiant ou mot de passe !';
+	}
+	else{
+
+    if ($isPasswordCorrect) {
+        session_start();
+        $_SESSION['id'] = $connect['id'];
+        $_SESSION['pseudo'] = $pseudo;
+        $_SESSION['droits'] = $connect['droits'];
+        header("Location: ../blog/menu/blogAccueilConnect.php?id=");
+       
+    }else{
+        echo 'Mauvais identifiant ou mot de passe !';
+    }
+    if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
+    header("Location: ../blog/view/backend/redacChap.php?droits=".$_SESSION['droits']);
+	}
+}
+
+function deconnexion()
+{
+	session_start();
+	setcookie('email','',time()-3600);
+	setcookie('password','',time()-3600);
+	$_SESSION = array();
+	session_destroy();
+	header("Location: blogAccueil.php");
 }
 
 

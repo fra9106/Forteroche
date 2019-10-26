@@ -2,8 +2,8 @@
 //--------Contoller admin
 
 
-require_once('model/postManager.php');// chargement des classes
-require_once('model/commentManager.php');
+require_once('model/PostManager.php');// chargement des classes
+require_once('model/CommentManager.php');
 
 function editChapitre($title, $content) //fonction rédation chapitre
 {

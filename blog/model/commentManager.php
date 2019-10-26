@@ -1,5 +1,5 @@
 <?php
-require_once("model/manager.php"); //appelle la class Manager pour se connecter à bdd
+require_once("model/Manager.php"); //appelle la class Manager pour se connecter à bdd
 
 class CommentManager extends Manager // héritage class Manager
 {
