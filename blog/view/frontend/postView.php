@@ -2,7 +2,7 @@
 <?php $title = htmlspecialchars($post['title']); ?>
 
 <?php ob_start(); 
-session_start();
+//session_start();
 //$_SESSION['id_user'] = $_POST['id_user'];
 ?>
 
@@ -52,7 +52,7 @@ session_start();
             <div class="vuChapComment"><br>
                 <p>le <?= $comment['comment_date_fr'] ?></p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p><br>
-                <a href="index.php?action=signalement&amp;id=<?=$comment['id'] ?>"><button type="submit"class="btn btn-primary">Signaler ce commentaire !</button></a><br><br>
+                <a href="index.php?action=signal&amp;id=<?=$comment['id'] ?>"><button type="submit"class="btn btn-primary">Signaler ce commentaire !</button></a><br><br>
             </div>
             <?php
             }

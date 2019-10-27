@@ -1,6 +1,6 @@
 <?php $title = 'Chapitre à modifier'; ?>
 <?php ob_start();
-session_start(); 
+//session_start(); 
 ?>
 
 <div class="vuChapComment">

@@ -44,7 +44,7 @@ function chapitAdmin() //fonction de récupération chapitre admin
 	require('view/backend/chapitreAdmin.php');
 }
 
-function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
+function modifChapitre($title, $content,$postId) //fonction modif chapitre admin ../../index.php?action=commentsAdmin&amp;signalement=1
 {
 	$chapModif = new PostManager();
 
@@ -57,7 +57,7 @@ function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
 	}
 }
 
-function commentsAdmin() //fonction récupère les commentaires signalés
+function commentsAdmin() //fonction récupère les commentaires signalés pour les afficher dans la vue
 { 	
 	$commentManager = new CommentManager();
 	$comments = $commentManager->getCommentSignal($_GET['signalement']);
@@ -65,7 +65,7 @@ function commentsAdmin() //fonction récupère les commentaires signalés
 	require('view/backend/commentsAdmin.php');
 }
 
-function suppComments($commentId)// fonction supprime commentaires signalés 
+function suppComments($commentId)// fonction supprime commentaires signalés pour les afficher dans la vue
 {
 	$supprime = new CommentManager();
 	$deletedComment = $supprime->deletComment($commentId);
@@ -89,5 +89,18 @@ function designalComments($commentId) //fonction modification commentaires signa
 	}
 	
 	require('view/backend/commentsAdmin.php');
+}
+
+function adminViewConnect()
+{
+	//$connecty = new MembersManager();
+	//$connectAdministrator = $connecty->selectAdmin($droits);
+
+	//if($connectAdministrator === false) {
+		//die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de vous connecter en tant qu\'administrator !');
+	//}else{ header('Location: index.php?action=redacChap');
+	//}
+	
+	require('view/backend/redacChap.php');
 }
 

@@ -43,6 +43,9 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
         <a class="nav-link" href="blogAccueil.php"><span><i class="fa fa-home"></i></span> Accueil <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="../index.php?action=adminViewConnect&amp;droits=<?=$_SESSION['droits']?>">Admin</a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link" href="../index.php?action=deconnexion">Déconnexion</a>
       </li>
     </ul>
@@ -97,7 +100,7 @@ if(isset($_POST['pseudo']) AND !empty($_POST['pseudo']))
   <div class="col-sm-12 col-md-4">
     <h2>Billet simple pour l’Alaska </h2>
     <p>Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
-    <button type="submit" onClick="javascript:document.location.href='../index.php'" class="btn btn-secondary">Je veux lire !</button><br><br>
+    <button type="submit" onClick="javascript:document.location.href='../index.php?action=listChapitres'" class="btn btn-secondary">Je veux lire !</button><br><br>
   </div>
 </div>
     </div>

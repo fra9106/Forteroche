@@ -42,7 +42,7 @@ if(isset($_SESSION['pseudo']))
         <a class="nav-link" href="../index.php?action=displConnexion">Connexion</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="blogForm.php">Créer un compte</a>
+        <a class="nav-link" href="../index.php?action=displFormulContact">Créer un compte</a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -97,7 +97,7 @@ if(isset($_SESSION['pseudo']))
     <h2>Billet simple pour l’Alaska </h2>
     <p>Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
     
-    <button type="submit" onClick="javascript:document.location.href='../index.php'" class="btn btn-secondary">Je veux lire !</button>
+    <button type="submit" onClick="javascript:document.location.href='../index.php?action=listChapitres'" class="btn btn-secondary">Je veux lire !</button>
   
   </div>
 </div>

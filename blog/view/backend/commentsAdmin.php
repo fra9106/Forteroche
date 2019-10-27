@@ -1,7 +1,7 @@
 <?php $title = 'Commentaires Signalés'; ?>
 <!--affichage liste des commentaires signalés-->
 <?php ob_start();
-session_start(); 
+//session_start(); 
 ?>
 <div class="vuChapComment">
 	<div align="center">

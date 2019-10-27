@@ -47,7 +47,8 @@ function signal($commentId)
 
 	if($signal === false) {
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de signaler !');
-	}else{ header('Location: index.php');
+	}else{ 
+			header('Location: index.php?action=listChapitres');
 	
 	}
 }
@@ -75,13 +76,15 @@ function connexion($pseudo,$motdepass)
         $_SESSION['id'] = $connect['id'];
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['droits'] = $connect['droits'];
-        header("Location: ../blog/menu/blogAccueilConnect.php?id=");
+        header("Location: ../blog/menu/blogAccueilConnect");
+       
        
     }else{
         echo 'Mauvais identifiant ou mot de passe !';
     }
     if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-    header("Location: ../blog/view/backend/redacChap.php?droits=".$_SESSION['droits']);
+    header("Location: ../blog/menu/blogAccueilConnect");
+    	
 	}
 }
 
@@ -95,5 +98,24 @@ function deconnexion()
 	header("Location: ../blog/menu/blogAccueil.php");
 }
 
+function listChapitres() //fonction liste chapitre 
+{
+	$postManager = new PostManager();
+	$posts = $postManager->getChapitres();//appel la fonction de récupération de tous les chapitres rangés en ordre de date descendante de cet objet
+	require('view/frontend/listPostsView.php');
+}
 
+function displFormulContact()
+{
+	require('view/frontend/formulaireView.php');
+}
+
+function addMember($pseudo, $mail, $mdp)
+{
+	$membre = new MembersManager();
+	$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
+	$newMembre = $membre->insertMembre($pseudo, $mail, $mdp);
+	
+	header("Location: ../blog/index.php?action=displConnexion");
+}
 

@@ -29,7 +29,7 @@ class CommentManager extends Manager // héritage class Manager
 
 		return $req;
 	}
-	public function getCommentSignal($signalement)
+	public function getCommentSignal($signalement) // récupère les commentaires signalés pour les afficher dans la vue
 	{
 		$db = $this->dbConnect();
 		$comments = $db->prepare('SELECT id, comment, signalement, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE signalement = 1 ORDER BY comment_date DESC');

@@ -12,8 +12,13 @@ class MembersManager extends Manager
 		return $connect;
 	}
 
+	public function insertMembre($pseudo, $mail, $mdp)
+	{
+		$db = $this->dbConnect();
+		$insertmbr = $db->prepare("INSERT INTO users(pseudo, mail, motdepasse, droits) VALUES(?, ?, ?, 0)");
+        $insertmbr->execute(array($pseudo, $mail, $mdp));
+        return $insertmbr;
 
-
-
+	}
 
 }

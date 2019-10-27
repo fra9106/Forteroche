@@ -3,6 +3,8 @@
 
 require('controller/frontend.php'); //appelle la page pour pouvoir fonctionner
 require('controller/backend.php');
+session_start();
+
 
 if (isset($_GET['action'])) {
   if ($_GET['action'] == 'listPosts') {
@@ -26,10 +28,6 @@ if (isset($_GET['action'])) {
   }
 }
 
-}else {
-  listPosts();
-}
-
 if (isset($_GET['action'])) {
   if ($_GET['action'] == 'chapitAdmin') {
     if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -41,7 +39,7 @@ if (isset($_GET['action'])) {
 }
 
 if (isset($_GET['action'])) {
- if ($_GET['action'] == 'signalement') {
+ if ($_GET['action'] == 'signal') {
    if ((isset($_GET['id'])) && (!empty($_GET['id']))){
     signal($_GET['id']);
    }else{ $erreur = "Oups....erreur de signalement !!!";}
@@ -85,12 +83,12 @@ if (isset($_GET['action'])) {
  }
 }
 
-if (isset($_GET['action'])) {
+if (isset($_GET['action'])) { // récupère les commentaires signalés pour les afficher dans la vue
  if ($_GET['action'] == 'commentsAdmin') {
    if (isset($_GET['signalement']) && $_GET['signalement'] == '1') {
    commentsAdmin($_GET['signalement']);
    }else {
-    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun commentaires supprimé !';
+    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun commentaires supprimé !</p>';
    }
  } 
 }
@@ -99,8 +97,16 @@ if (isset($_GET['action'])) {
  if ($_GET['action'] == 'designalComments') {
   if ((isset($_GET['id'])) && (!empty($_GET['id']))){
       designalComments($_GET['id']);
-   }else{ $erreur = "Oups....erreur de désignalement !!!";
+   }else{ echo "Oups....erreur de désignalement !!!";
   }
+ }
+}
+
+if (isset($_GET['action'])) {
+ if ($_GET['action'] == 'suppComments') {
+   if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
+    suppComments($_GET['id']);
+   }
  }
 }
 
@@ -117,7 +123,7 @@ if(isset($_GET['action'])) {
         $pseudo = htmlspecialchars($_POST['pseudo']);
         if(!empty(trim($_POST['pseudo'])) AND !empty(trim($_POST['mdp'])))
         connexion($_POST['pseudo'], $_POST['mdp']); 
-       }else{ $erreur = "Oups... petit problème de connexion !";
+       }else{ $erreur = "Oups... petit problème de connexion !" ;
      }     
   }
 }
@@ -128,7 +134,59 @@ if (isset($_GET['action'])) {
  } 
 }
 
-        
+if (isset($_GET['action'])) {  
+  if ($_GET['action'] == 'listChapitres') {
+    listChapitres(); 
+  }
+}
+
+if (isset($_GET['action'])) {
+  if ($_GET['action'] == 'displFormulContact') {
+        displFormulContact(); 
+    }else{ $erreur = "Oups... petit problème d'affichage de formulaire d'inscription !";
+  }             
+}
+
+if (isset($_GET['action'])) {
+  if ($_GET['action'] == 'addMember') {
+    if (isset($_POST['addMember']) AND isset($_POST['pseudo'])  AND isset($_POST['mail']) AND isset($_POST['mdp'])) { 
+      $pseudo = htmlspecialchars($_POST['pseudo']);
+      $mail = htmlspecialchars($_POST['mail']);
+      if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mdp'])) {
+      $pseudolength = strlen($pseudo);
+    }
+        if($pseudolength > 2) {
+          if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
+              addMember($_POST['pseudo'], $_POST['mail'], $_POST['mdp']); 
+              $erreur = "Votre compte a bien été créé !";
+
+              } else {
+                echo "Adresse mail non valide !";
+              }
+    
+        } else {
+          echo "Votre pseudo doit contenir plus de 2 caractères !";
+        }
+      
+   } else {
+      echo "Tous les champs doivent être complétés !";
+   }
+  }
+}
+
+if (isset($_GET['action'])) {
+if ($_GET['action'] == 'adminViewConnect') {
+      if (isset($_SESSION) && $_SESSION['droits'] == '1') {
+        adminViewConnect();
+      } else { echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Vous n\'avez aucun droit administrateur !</p>';
+   }
+  }
+}
+
+
+}else {
+  listPosts();
+}
     
    
         

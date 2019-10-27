@@ -1,6 +1,5 @@
-<?php $title = 'redaction des chapitres'; ?>
+<?php $title = 'connexion'; ?>
 <?php ob_start(); 
-session_start();
 ?>
 
 <div class="vuChapComment">
@@ -13,14 +12,8 @@ session_start();
             <br /><br />
             <button type="submit"name="connexion"class="btn btn-primary">Je me connecte!</button>
          </form>
-         <?php
-         if(isset($erreur)) {
-            echo '<font color="#760001">'.$erreur."</font>";
-         }
-         ?>
-         
       </div>
 </div>
 
 <?php $content = ob_get_clean(); ?>
-<?php require('templateNav.php'); ?> 
+<?php require('template.php'); ?> 

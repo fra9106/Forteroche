@@ -1,7 +1,7 @@
 <?php $title = 'Chapitres'; ?>
 <!--affichage liste des chapitres mis en ligne-->
 <?php ob_start();
-session_start(); 
+//session_start(); 
 //var_dump($_POST['title']);
 ?>
 
