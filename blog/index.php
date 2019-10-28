@@ -153,24 +153,21 @@ if (isset($_GET['action'])) {
       $pseudo = htmlspecialchars($_POST['pseudo']);
       $mail = htmlspecialchars($_POST['mail']);
       if(!empty($_POST['pseudo']) AND !empty($_POST['mail']) AND !empty($_POST['mdp'])) {
-      $pseudolength = strlen($pseudo);
-    }
+        $pseudolength = strlen($pseudo);
+        
         if($pseudolength > 2) {
           if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
-              addMember($_POST['pseudo'], $_POST['mail'], $_POST['mdp']); 
-              $erreur = "Votre compte a bien été créé !";
-
-              } else {
-                echo "Adresse mail non valide !";
-              }
-    
+            addMember($_POST['pseudo'], $_POST['mail'], $_POST['mdp']); 
+          } else {
+            echo "Adresse mail non valide !";
+          }
         } else {
           echo "Votre pseudo doit contenir plus de 2 caractères !";
         }
-      
-   } else {
-      echo "Tous les champs doivent être complétés !";
-   }
+      }else {
+        echo "Tous les champs doivent être complétés !";
+      }
+    }
   }
 }
 

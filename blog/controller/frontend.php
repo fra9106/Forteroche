@@ -113,9 +113,16 @@ function displFormulContact()
 function addMember($pseudo, $mail, $mdp)
 {
 	$membre = new MembersManager();
+	$test = new MembersManager();
+
 	$mdp = password_hash($_POST['mdp'], PASSWORD_DEFAULT);
-	$newMembre = $membre->insertMembre($pseudo, $mail, $mdp);
 	
+	$testOk = $test->testMail($mail);
+
+               if($testOk == 0) {
+	$newMembre = $membre->insertMembre($pseudo, $mail, $mdp);
 	header("Location: ../blog/index.php?action=displConnexion");
+	}else{ 
+		echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Adresse email déjà utilisé  !</p>';}
 }
 

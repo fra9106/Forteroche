@@ -21,4 +21,13 @@ class MembersManager extends Manager
 
 	}
 
+	public function testMail($mail)
+	{
+		$db = $this->dbConnect();
+		 $reqmail = $db->prepare("SELECT * FROM users WHERE mail = ?");
+               $reqmail->execute(array($mail));
+           	   $mailexist = $reqmail->rowCount();
+               return $mailexist;
+	}
+
 }
