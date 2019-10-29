@@ -93,14 +93,8 @@ function designalComments($commentId) //fonction modification commentaires signa
 
 function adminViewConnect()
 {
-	//$connecty = new MembersManager();
-	//$connectAdministrator = $connecty->selectAdmin($droits);
-
-	//if($connectAdministrator === false) {
-		//die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de vous connecter en tant qu\'administrator !');
-	//}else{ header('Location: index.php?action=redacChap');
-	//}
-	
 	require('view/backend/redacChap.php');
 }
+
+
 

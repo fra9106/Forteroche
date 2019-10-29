@@ -6,7 +6,7 @@
   <div align="center">
    <h2>Billet simple pour l'Alaska</h2>
    <em><h3>Derniers chapitres...</h3></em>
-   <a href="menu/blogAccueil.php">Retour à la page d'accueil</a><br>
+   <a href="index.php">Retour à la page d'accueil</a><br>
    <a href="index.php?action=adminViewConnect&amp;droits=<?=$_SESSION['droits']?>">Retour à la page rédacChap</a>
 
    <?php

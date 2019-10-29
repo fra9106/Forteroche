@@ -9,7 +9,7 @@
  <div class="vuChapComment">
       <div align="center"><br>
          <h2>Billet simple pour l'Alaska</h2>
-         <p><a href="index.php">Retour à la liste des Chapitres</a></p><br>
+         <p><a href="index.php?action=listPosts">Retour à la liste des Chapitres</a></p><br>
 
          <div class="news">
          	<h3>
@@ -22,7 +22,7 @@
          	</p>
          </div>
 
-                <?php  if(isset($_SESSION['pseudo'])) { ?> 
+                <?php  if(isset($_SESSION['id'])) { ?> 
                
 
                 <h2>Mon commentaire :</h2><br/>

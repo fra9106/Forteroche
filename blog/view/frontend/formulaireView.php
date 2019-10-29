@@ -7,7 +7,7 @@
 
 	<h2>Inscription</h2>
  
-   	<a href="menu/blogAccueil.php">Retour accueil</a><br><br>
+   	<a href="index.php">Retour accueil</a><br><br>
 
 	<form  action="index.php?action=addMember" method="POST">
       <table>

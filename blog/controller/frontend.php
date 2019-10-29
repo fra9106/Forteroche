@@ -15,7 +15,7 @@ function listPosts() //fonction liste chapitre et affiche par listPostView.php
 
 }
 
-function post() //fonction de récupération des chapitre ET ses commentaires par postView.php
+function post() //fonction de récupération d'1 chapitre ET ses commentaires
 { 	
 	$postManager = new PostManager();
 	$commentManager = new CommentManager();
@@ -26,16 +26,16 @@ function post() //fonction de récupération des chapitre ET ses commentaires pa
 	require('view/frontend/postView.php');
 }
 
-function addComment($idBillet, $comment) // teste le retour de la requete postComment...
+function addComment($idBillet, $idUser, $comment) // teste le retour de la requete postComment...
 {
 	$commentManager = new CommentManager();
 
-	$affectedLines = $commentManager->postComment($idBillet, $comment);
-
+	$affectedLines = $commentManager->postComment($idBillet, $_SESSION['id'], $comment);
+	
 	if ($affectedLines === false){ //si le commentaire n'arrive pas à la bdd...
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible d\'ajouter le commentaire !');// on arrête le script avec un die
 
-	}else{ header('Location: index.php?action=post&id=' . $idBillet); // sinon on peut admirer son joli commentaire :)
+	}else{header('Location: index.php?action=post&id=' . $idBillet); // sinon on peut admirer son joli commentaire :)
 
 	}
 }
@@ -76,14 +76,14 @@ function connexion($pseudo,$motdepass)
         $_SESSION['id'] = $connect['id'];
         $_SESSION['pseudo'] = $pseudo;
         $_SESSION['droits'] = $connect['droits'];
-        header("Location: ../blog/menu/blogAccueilConnect");
+        header("Location: index.php");
        
        
     }else{
         echo 'Mauvais identifiant ou mot de passe !';
     }
     if(!empty($_SESSION['droits']) && $_SESSION['droits'] == '1') 
-    header("Location: ../blog/menu/blogAccueilConnect");
+    header("Location: index.php");
     	
 	}
 }
@@ -95,7 +95,7 @@ function deconnexion()
 	setcookie('password','',time()-3600);
 	$_SESSION = array();
 	session_destroy();
-	header("Location: ../blog/menu/blogAccueil.php");
+	header("Location: index.php");
 }
 
 function listChapitres() //fonction liste chapitre 
@@ -124,5 +124,10 @@ function addMember($pseudo, $mail, $mdp)
 	header("Location: ../blog/index.php?action=displConnexion");
 	}else{ 
 		echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Adresse email déjà utilisé  !</p>';}
+}
+
+function pageAccueil()
+{
+	require('view/frontend/accueil.php');
 }
 

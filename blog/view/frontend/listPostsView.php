@@ -9,7 +9,7 @@
       <div align="center">
          <h2>Billet simple pour l'Alaska</h2>
          <em><h3>Derniers chapitres...</h3></em>
-         <a href="menu/blogAccueil.php">retour à la page d'accueil</a>
+         <a href="index.php">retour à la page d'accueil</a>
 
 
          <?php
