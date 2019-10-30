@@ -14,8 +14,10 @@
          <div class="news">
          	<h3>
          		<?= ($post['title']) ?>
-         		<em>le <?= $post['creation_date_fr'] ?></em>
-         	</h3>
+            </h3>
+         		
+                <p><em> le <?= $post['creation_date_fr'] ?></em></p>
+         	
          	
          	<p>
          		<?= nl2br($post['content']) ?>
@@ -50,8 +52,9 @@
             {
             ?> <!--affiche l'auteur la date et le commentaire-->
             <div class="vuChapComment"><br>
-                <p>le <?= $comment['comment_date_fr'] ?></p>
+                <p><em>Envoyé le : </em><?= $comment['comment_date_fr'] ?></p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p><br>
+                <p><em>De la part de : </em><?= $comment['pseudo'] ?></p>
                 <a href="index.php?action=signal&amp;id=<?=$comment['id'] ?>"><button type="submit"class="btn btn-primary">Signaler ce commentaire !</button></a><br><br>
             </div>
             <?php

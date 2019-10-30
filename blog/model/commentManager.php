@@ -6,7 +6,7 @@ class CommentManager extends Manager // héritage class Manager
 	public function getComments($idBillet)// méthode de récupération des commentaires par l'id des chapitres
 	{
 		$db = $this->dbConnect();
-		$comments = $db->prepare('SELECT id, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE id_billet = ? ORDER BY comment_date DESC');
+		$comments = $db->prepare('SELECT comments.id, users.pseudo, comments.comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments INNER JOIN users ON comments.id_user = users.id WHERE id_billet = ? ORDER BY comment_date DESC');
 		$comments->execute(array($idBillet));
 
 		return $comments;
