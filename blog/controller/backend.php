@@ -72,7 +72,7 @@ function suppComments($commentId) //fonction supprime commentaires signalés pou
 	if($deletedComment === false) {
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Je crois que ça va pas être possible de supprimer ce commentaire...</p>');
 	}else{
-		header('Location: index.php?action=listChapAdmin');
+		header('Location: index.php?action=commentsAdmin&signalement=1');
 	}
 }
 
@@ -84,7 +84,7 @@ function designalComments($commentId) //fonction modification commentaires signa
 	if($comments === false) {
 		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de designaler le commentaire!</p>');
 	}else{ 
-		header('Location: index.php?action=listChapAdmin');
+		header('Location: index.php?action=commentsAdmin&signalement=1');
 	}
 	
 	require('view/backend/commentsAdmin.php');
