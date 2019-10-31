@@ -12,6 +12,7 @@ p{
 	font-size: 20px;
 	color: grey;
 }
+
 .btn {
 	margin-left: 90px;
 }
@@ -19,12 +20,13 @@ p{
 #bonjSession{
 	font-size: 18px;
 	color: #760001;
-	
 }
+
 .news{
 	border: 1px solid #760001; 
 	margin: 15px 15px 15px;
 }
+
 .news :hover{
 	color: #760001;
 }
@@ -34,9 +36,11 @@ p{
 	border: 1px solid black;
     border-radius: 5px;
 }
+
 .error{
 	color: red;
 }
+
 .form{
 	margin: 50px;
 }
