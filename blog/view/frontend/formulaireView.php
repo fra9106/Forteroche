@@ -3,43 +3,43 @@
 ?>
 
 <div class="vuChapComment">
-<div align="center">
+  <div align="center">
 
-	<h2>Inscription</h2>
+   <h2>Inscription</h2>
+   
+   <a href="index.php">Retour accueil</a><br><br>
+
+   <form  action="index.php?action=addMember" method="POST">
+    <table>
+
+
+     <tr>
+      
+      <td align="right">
+       <input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>" /><br>
+     </td>
+   </tr>
+   
+   <td align="right">
+     <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
+   </td>
+ </tr>
  
-   	<a href="index.php">Retour accueil</a><br><br>
+ <tr>
+   
+  <td align="right">
+   <input type="password" placeholder="Entrez un mot de passe" id="mdp" name="mdp" /><br><br>
+ </td>
+</tr>
 
-	<form  action="index.php?action=addMember" method="POST">
-      <table>
+<tr>
+  <td align="right">
+   <button type="submit"name="addMember"class="btn btn-primary">Je veux créer mon compte !</button><br><br>
+ </td>
+</tr>
 
-
-         <tr>
-            
-            <td align="right">
-               <input type="text" placeholder="Votre pseudo" id="pseudo" name="pseudo" value="<?php if(isset($pseudo)) { echo $pseudo; } ?>" /><br>
-            </td>
-         </tr>
-         
-            <td align="right">
-               <input type="email" placeholder="Votre mail" id="mail" name="mail" value="<?php if(isset($mail)) { echo $mail; } ?>" /><br>
-            </td>
-         </tr>
-         
-         <tr>
-           
-            <td align="right">
-               <input type="password" placeholder="Entrez un mot de passe" id="mdp" name="mdp" /><br><br>
-            </td>
-         </tr>
-         
-         <tr>
-            <td align="right">
-             <button type="submit"name="addMember"class="btn btn-primary">Je veux créer mon compte !</button><br><br>
-          </td>
-       </tr>
-
-    </table>
- </form>
+</table>
+</form>
 
 </div>
 </div>

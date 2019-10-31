@@ -1,6 +1,6 @@
-<?php $title = 'liste des chapitres en ligne'; ?>
+<?php $title = 'liste des chapitres en ligne(admin)'; ?>
 <?php ob_start();
- ?>
+?>
 
 <div class="vuChapComment">
   <div align="center">
@@ -15,7 +15,7 @@
 
     ?>  
 
-    <div class="news"> 
+    <div class="news"> <!--affiche titre, date et contenu chapitre-->
       <h4>
        <?=($data['title']) ?>
        <em>le <?= $data['creation_date_fr'] ?></em>
@@ -23,7 +23,7 @@
 
      <p>
        <?= nl2br($data['content']) ?><br>
-       <em><a href="index.php?action=chapitAdmin&amp;id=<?= $data['id'] ?>">Modifier</a></em>
+       <em><a href="index.php?action=chapitAdmin&amp;id=<?= $data['id'] ?>">Modifier</a></em> <!--bouton modifier-->
      </p>
    </div>
 
@@ -32,7 +32,7 @@
  $posts->closeCursor();	
  ?>
 
-  </div>
+</div>
 </div>
 <?php
 

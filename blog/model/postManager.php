@@ -23,7 +23,7 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
-	public function postChapitre($title, $content) // méthode envoit chapitre à la bdd
+	public function postChapitre($title, $content) // insertion chapitre à la db
 	{
 		$db = $this->dbConnect();
 		$inserChap = $db->prepare('INSERT INTO posts(title, content, creation_date) VALUES (?, ?, NOW())');
@@ -33,7 +33,7 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
-	public function getChapitresAdmin() // méthode de récupération de tous les chapitres rangés en ordre de date descendante
+	public function getChapitresAdmin() //récupération de tous les chapitres rangés en ordre de date descendante (admin)
 	{
 		
 		$db = $this->dbConnect();
@@ -42,15 +42,16 @@ class PostManager extends Manager // héritage class Manager
 		return $req;
 	}
 
-	public function deletChapitre($dataId) {
+	public function deletChapitre($dataId) //supprime chapitre
+	{ 
         $db = $this->dbConnect();
         $req = $db->prepare('DELETE FROM posts WHERE id = ?');
         $req->execute(array($dataId));
-        //$supprimerChapitre = $req->fetch();
+       
         return $req;
     }
 
-    public function getChapitre($postId)
+    public function getChapitre($postId)//recupère chapitre par id
     {
     	$db = $this->dbConnect();
     	$req = $db->prepare('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts WHERE id = ?');
@@ -59,7 +60,7 @@ class PostManager extends Manager // héritage class Manager
     	return $req;
 	}
 
-     public function updateChapitre($title, $content, $postId) // méthode envoit chapitre à la bdd
+     public function updateChapitre($title, $content, $postId) //modifie chapitre 
 	{
 		$db = $this->dbConnect();
 		$updChap = $db->prepare('UPDATE posts SET title = ?, content = ? WHERE id = ?');
@@ -68,7 +69,7 @@ class PostManager extends Manager // héritage class Manager
 
 	}
 
-	public function getChapitres() // méthode de récupération de tous les chapitres rangés en ordre de date descendante
+	public function getChapitres() //récupération de tous les chapitres (user)
 	{
 		
 		$db = $this->dbConnect();

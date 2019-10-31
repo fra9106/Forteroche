@@ -1,36 +1,36 @@
 <?php 
-//--------Contoller admin
+//--------Contoller backend Admin
 
 
-require_once('model/PostManager.php');// chargement des classes
+require_once('model/PostManager.php');// chargement classes
 require_once('model/CommentManager.php');
 
 function editChapitre($title, $content) //fonction rédation chapitre
 {
-	$chapEdit = new PostManager();// création objet postManager
-	$chapitre = $chapEdit->postChapitre($title, $content);//appel fonction (retour model)
+	$chapEdit = new PostManager();//création objet postManager
+	$chapitre = $chapEdit->postChapitre($title, $content);//retour modèle fonction postChapitre
 	
 	if($chapitre === false) {
-		die('Je crois que ça va pas être possible d \'ajouter un chapitre...');// condition si false on arrête le script
-	}else{//si ok chargement de la page qui affichera la liste des chapitres
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Je crois que ça va pas être possible d \'ajouter un chapitre...');//condition si false on arrête le script
+	}else{//si true chargement de la page qui affichera la liste des chapitres
 		header('Location: index.php?action=listChapAdmin');
 	}
-	
-}	 
-function listChapAdmin() //fonction liste chapitre admin
+}
+
+function listChapAdmin() //fonction affichage de la liste des chapitres Admin
 {
-	$postManager = new PostManager();// création objet
-	$posts = $postManager->getChapitresAdmin();//appel la fonction de récupération de tous les chapitres rangés en ordre de date descendante de cet objet
+	$postManager = new PostManager();
+	$posts = $postManager->getChapitresAdmin();
 	require('view/backend/listChapAdmin.php');
 }
 
-function suppChapitre($dataId)// fonction supprime chapitre 
+function suppChapitre($dataId)//fonction delete chapitres 
 {
 	$supprime = new PostManager();
 	$deletedPost = $supprime->deletChapitre($dataId);
 
 	if($deletedPost === false) {
-		die('Je crois que ça va pas être possible de supprimer un chapitre...');
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Je crois que ça va pas être possible de supprimer un chapitre...</p>');
 	}else{
 		header('Location: index.php?action=listChapAdmin');
 	}
@@ -44,14 +44,13 @@ function chapitAdmin() //fonction de récupération chapitre admin
 	require('view/backend/chapitreAdmin.php');
 }
 
-function modifChapitre($title, $content,$postId) //fonction modif chapitre admin ../../index.php?action=commentsAdmin&amp;signalement=1
+function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
 {
 	$chapModif = new PostManager();
-
 	$chapOk = $chapModif->updateChapitre($title, $content,$postId);
 	
 	if($chapOk === false) {
-		die('Je crois que ça va pas être possible de modifier un chapitre...');
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Je crois que ça va pas être possible de modifier un chapitre...</p>');
 	}else{
 		header('Location: index.php?action=listChapAdmin');
 	}
@@ -65,13 +64,13 @@ function commentsAdmin() //fonction récupère les commentaires signalés pour l
 	require('view/backend/commentsAdmin.php');
 }
 
-function suppComments($commentId)// fonction supprime commentaires signalés pour les afficher dans la vue
+function suppComments($commentId) //fonction supprime commentaires signalés pour les afficher dans la vue
 {
 	$supprime = new CommentManager();
 	$deletedComment = $supprime->deletComment($commentId);
 
 	if($deletedComment === false) {
-		die('Je crois que ça va pas être possible de supprimer ce commentaire...');
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Je crois que ça va pas être possible de supprimer ce commentaire...</p>');
 	}else{
 		header('Location: index.php?action=listChapAdmin');
 	}
@@ -83,15 +82,15 @@ function designalComments($commentId) //fonction modification commentaires signa
 	$comments = $commentManager->deSignal($commentId);
 
 	if($comments === false) {
-		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de designaler le commentaire!');
-	}else{ header('Location: index.php?action=listChapAdmin');
-	
+		die('<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Impossible de designaler le commentaire!</p>');
+	}else{ 
+		header('Location: index.php?action=listChapAdmin');
 	}
 	
 	require('view/backend/commentsAdmin.php');
 }
 
-function adminViewConnect()
+function adminViewConnect() //connexion gestion Admin 
 {
 	require('view/backend/redacChap.php');
 }

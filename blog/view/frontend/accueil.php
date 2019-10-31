@@ -3,7 +3,18 @@
 <!--<span id="bonjSession">Bonjour <?= $_SESSION['pseudo'];?></span>-->
 <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-    <span class="navbar-brand">Menu</span>
+    <?php
+    if(isset($_SESSION['pseudo']))
+    {
+      ?>
+      <span id="bonjSession">Bonjour <?= $_SESSION['pseudo'];?></span>
+      <?php
+    }else{
+      ?> 
+      <span id="bonjSession">Bonjour</span><?php
+    }
+    ?>
+    
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
