@@ -5,7 +5,7 @@
 
 <div class="vuChapComment">
   <div align="center">
-   <h2>Billet simple pour l'Alaska</h2>
+   <h2 id="ancre haut de page">Billet simple pour l'Alaska</h2>
    <em><h3>Derniers chapitres...</h3></em>
    <a href="index.php">retour à la page d'accueil</a>
 
@@ -25,6 +25,7 @@
      <p>
        <?= nl2br($data['content']) ?><br>
        <em><p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></p></em>
+       <em><p>Retour haut de la page: <a href="#ancre haut de page">cliquez ici</a></p></em>
      </p>
    </div>
    
