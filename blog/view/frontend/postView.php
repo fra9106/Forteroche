@@ -52,7 +52,14 @@
                 <p><em>Envoyé le : </em><?= $comment['comment_date_fr'] ?></p>
                 <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
                 <p><em>De la part de : </em><?= $comment['pseudo'] ?></p>
-                <a href="index.php?action=signal&amp;id=<?=$comment['id'] ?>"><button type="submit"class="btn btn-primary">Signaler ce commentaire !</button></a><br><br>
+                <?php  if(isset($_SESSION['id'])) { ?>
+                  <a href="index.php?action=signal&amp;id=<?=$comment['id'] ?>"><button type="submit"class="btn btn-primary">Signaler ce commentaire !</button></a><br><br>
+                  <?php
+                }else{
+                  echo '<p class="error">Pour signaler un commentaire, veuillez vous connecter !</p>
+                  <p><a href="index.php?action=displFormulContact">Pas encore insrit ?</a></p>'; 
+                }
+                ?>
               </div>
               <?php
             }
