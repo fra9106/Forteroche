@@ -14,7 +14,13 @@ p{
 }
 
 .btn {
-	margin-left: 90px;
+	margin-left: 110px;
+	margin-top: -45px;
+}
+
+.btn-primary{
+	margin-left: 10px;
+	margin-bottom: -30px;
 }
 
 #bonjSession{
@@ -35,6 +41,12 @@ p{
 	background: radial-gradient(white,grey);
 	border: 1px solid black;
     border-radius: 5px;
+    
+}
+
+.commentaires{
+	border: 1px solid #760001; 
+	margin: 15px 15px 15px;
 }
 
 .error{

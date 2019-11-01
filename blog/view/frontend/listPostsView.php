@@ -20,23 +20,20 @@
 
     <div class="news"> 
       <h4>
-         <?=($data['title']) ?>
-         <em>le <?= $data['creation_date_fr'] ?></em>
+       <?=($data['title']) ?>
+       <em><p>le <?= $data['creation_date_fr'] ?></p></em>
      </h4>
      
      <p>
-         <?= nl2br($data['content']) ?><br>
-         <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
-
-         
-         
+       <?= nl2br($data['content']) ?><br>
+       <em><p><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></p></em>
      </p>
- </div>
- 
- <?php
-}
-$posts->closeCursor();	
-?>
+   </div>
+   
+   <?php
+ }
+ $posts->closeCursor();	
+ ?>
 
 </div>
 </div>

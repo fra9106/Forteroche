@@ -8,6 +8,7 @@
     <div><br>
       <h2>Commentaires signalés :</h2><br>
       <a href="index.php?action=listChapAdmin">Retour vers les chapitres</a>
+      
       <?php
       while ($comment = $comments->fetch())
       {
