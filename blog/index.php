@@ -37,10 +37,14 @@ if (isset($_GET['id']) && $_GET['id'] > 0) {
 
 if (isset($_GET['action'])) { //affiche un chapitre à modifier ou à supprimer Admin
   if ($_GET['action'] == 'chapitAdmin') {
-    if (isset($_GET['id']) && $_GET['id'] > 0) {
-      chapitAdmin();
-    }else {
-      echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun petit problème d\'affichage du chapitre !</p>';
+    if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+        }else{
+      if (isset($_GET['id']) && $_GET['id'] > 0) {
+        chapitAdmin();
+      }else {
+        echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Aucun petit problème d\'affichage du chapitre !</p>';
+      }
     }
   } 
 }
@@ -72,50 +76,74 @@ if (isset($_GET['action'])) { // rédation nouveau chapitre
 
 if (isset($_GET['action'])) { //affichage liste des chapitres Admin
   if ($_GET['action'] == 'listChapAdmin') {
-    listChapAdmin(); 
-  }
+    if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
+         listChapAdmin(); 
+      }
+    }
 }
 
 if (isset($_GET['action'])) { //supprime chapitre
  if ($_GET['action'] == 'suppChapitre') {
+  if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
    if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
-    suppChapitre($_GET['id']);
+      suppChapitre($_GET['id']);
+      }
     }
   }
 }
 
 if (isset($_GET['action'])) { //modifie chapitre 
  if ($_GET['action'] == 'modifChapitre') {
+  if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
    if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
-    modifChapitre($_POST['title'], $_POST['content'], $_GET['id']);
+      modifChapitre($_POST['title'], $_POST['content'], $_GET['id']);
+      }
     }
   }
 }
 
 if (isset($_GET['action'])) { //récupère les commentaires signalés
  if ($_GET['action'] == 'commentsAdmin') {
-   if (isset($_GET['signalement']) && $_GET['signalement'] == '1') {
+  if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
+    if (isset($_GET['signalement']) && $_GET['signalement'] == '1') {
      commentsAdmin($_GET['signalement']);
-   }else {
-    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... problème d\'affichage signalement !</p>';
+      }else{
+      echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... problème d\'affichage signalement !</p>';
+      }
     }
   } 
 }
 
 if (isset($_GET['action'])) { //désignale commentaire signalé
  if ($_GET['action'] == 'designalComments') {
-  if ((isset($_GET['id'])) && (!empty($_GET['id']))){
-    designalComments($_GET['id']);
-  }else{ 
-    echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups....erreur de désignalement !</p>';
+  if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
+    if ((isset($_GET['id'])) && (!empty($_GET['id']))){
+      designalComments($_GET['id']);
+      }else{ 
+      echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups....erreur de désignalement !</p>';
+      }
     }
   }
 }
 
 if (isset($_GET['action'])) { //supprime un commentaire
  if ($_GET['action'] == 'suppComments') {
-   if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
-    suppComments($_GET['id']);
+   if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+      }else{
+    if ((isset($_GET['id'])) && (!empty($_GET['id']))) {
+      suppComments($_GET['id']);
+      }
     }
   }
 }
@@ -182,10 +210,14 @@ if (isset($_GET['action'])) { // ajout membre après divers tests
 
 if (isset($_GET['action'])) { //connexion gestion Admin 
   if ($_GET['action'] == 'adminViewConnect') {
-    if (isset($_SESSION) && $_SESSION['droits'] == '1') {
-      adminViewConnect();
-    } else { 
-      echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Vous n\'avez aucun droit administrateur !</p>';
+    if (!isset($_SESSION['droits']) || ($_SESSION['droits'] == 0)) {
+        header('Location: index.php');
+        }else{
+      if (isset($_SESSION) && $_SESSION['droits'] == '1') {
+        adminViewConnect();
+      }else { 
+        echo '<p style= "border: 1px solid red; text-align: center; font-size: 55px; margin: 90px 90px 90px;">Oups... Vous n\'avez aucun droit administrateur !</p>';
+      }
     }
   }
 }
