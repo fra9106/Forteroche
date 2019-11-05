@@ -15,7 +15,7 @@
 
   <br/>
    <!--formulaire pour taper nouveau chapitre-->
-  <h3>Envoyer un chapitre</h3>
+  <h3>Rédaction chapitre : </h3>
 
   <form class="form"method="post" action="index.php?action=editChapitre&amp;id= ">
    <input type="text" placeholder="title" id="title" name="title" /><br><br><br>
