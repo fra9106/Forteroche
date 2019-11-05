@@ -91,13 +91,13 @@
       </div>
       <div class="col-sm-12 col-md-6 col-lg-4">
         <h2>C'est officiel !</h2>
-        <p id="presentation">Depuis le temps que je vous avais promis un blog pour accéder chapitre après chapitre à la lecture de mon dernier roman, et devant l’enthousiasme que vous avez manifesté lors du vote sur Facebook, c’est enfin arrivé !
+        <p class="presentation">Depuis le temps que je vous avais promis un blog pour accéder chapitre après chapitre à la lecture de mon dernier roman, et devant l’enthousiasme que vous avez manifesté lors du vote sur Facebook, c’est enfin arrivé !
           Vous avez enfin sous les yeux le site officiel version blog de mon dernier roman « Billet simple pour l’Alaska ».
         J’espère que ce concept vous plaira et surtout que ce récit vous captivera autant que je l’ai été à l’écrire. Je vous souhaite un agréable voyage...</p>
       </div>
       <div class="col-sm-12 col-md-12 col-lg-4">
         <h2>Billet simple pour l’Alaska </h2>
-        <p>Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
+        <p class="presentation">Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
         
         <button type="submit" onClick="javascript:document.location.href='index.php?action=listChapitres'" class="btn btn-secondary">Je veux lire !</button>
         
