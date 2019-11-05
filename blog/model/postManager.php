@@ -42,13 +42,14 @@ class PostManager extends Manager // héritage class Manager
 		return $req;
 	}
 
-	public function deletChapitre($dataId) //supprime chapitre
+	public function deletChapitre($dataId) //supprime un chapitre et ses commentaires
 	{ 
         $db = $this->dbConnect();
+        $comment = $db->prepare('DELETE FROM comments WHERE id_billet = ?');
+        $comment->execute([$dataId]);
         $req = $db->prepare('DELETE FROM posts WHERE id = ?');
         $req->execute(array($dataId));
-       
-        return $req;
+       	return $req;
     }
 
     public function getChapitre($postId)//recupère chapitre par id
