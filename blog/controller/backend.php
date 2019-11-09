@@ -7,7 +7,7 @@ require_once('model/CommentManager.php');
 
 function editChapitre($title, $content) //fonction rédation chapitre
 {
-	$chapEdit = new PostManager();//création objet postManager
+	$chapEdit = new PostManager();//création objet nouvel objet
 	$chapitre = $chapEdit->postChapitre($title, $content);//retour modèle fonction postChapitre
 	
 	if($chapitre === false) {
@@ -24,7 +24,7 @@ function listChapAdmin() //fonction affichage de la liste des chapitres Admin
 	require('view/backend/listChapAdmin.php');
 }
 
-function suppChapitre($dataId)//fonction delete chapitres 
+function suppChapitre($dataId)//fonction delete chapitre 
 {
 	$supprime = new PostManager();
 	$deletedPost = $supprime->deletChapitre($dataId);
@@ -36,7 +36,7 @@ function suppChapitre($dataId)//fonction delete chapitres
 	}
 }
 
-function chapitAdmin() //fonction de récupération chapitre admin
+function chapitAdmin() //fonction de récupération chapitre admin par id
 { 	
 	$postManager = new PostManager();
 	$chapy = $postManager->getChapitre($_GET['id']);
@@ -56,7 +56,7 @@ function modifChapitre($title, $content,$postId) //fonction modif chapitre admin
 	}
 }
 
-function commentsAdmin() //fonction récupère les commentaires signalés pour les afficher dans la vue
+function commentsAdmin() //fonction récupère les commentaires signalés pour les afficher dans la vue admin
 { 	
 	$commentManager = new CommentManager();
 	$comments = $commentManager->getCommentSignal($_GET['signalement']);
@@ -64,7 +64,7 @@ function commentsAdmin() //fonction récupère les commentaires signalés pour l
 	require('view/backend/commentsAdmin.php');
 }
 
-function suppComments($commentId) //fonction supprime commentaires signalés pour les afficher dans la vue
+function suppComments($commentId) //fonction supprime commentaire signalé
 {
 	$supprime = new CommentManager();
 	$deletedComment = $supprime->deletComment($commentId);
@@ -76,7 +76,7 @@ function suppComments($commentId) //fonction supprime commentaires signalés pou
 	}
 }
 
-function designalComments($commentId) //fonction modification commentaires signalés
+function designalComments($commentId) //fonction désignale commentaire signalé
 { 	
 	$commentManager = new CommentManager();
 	$comments = $commentManager->deSignal($commentId);
