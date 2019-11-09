@@ -98,9 +98,7 @@
       <div class="col-sm-12 col-md-12 col-lg-4">
         <h2>Billet simple pour l’Alaska </h2>
         <p class="presentation">Très bien, nous y sommes?<br>Alors, tenez-vous prêt... Veillez à ne pas gêner la fermeture des portes, nous allons partir pour un long périple à travers de grandes contrées sauvages... Attention mesdames et messieurs ! Attention au départ !</p><br><br>
-        
-        <button type="submit" onClick="javascript:document.location.href='index.php?action=listChapitres'" class="btn btn-secondary">Je veux lire !</button>
-        
+        <a href="index.php?action=listChapitres"><button type="submit"class="btn btn-secondary">Je veux lire !</button></a>
       </div>
     </div>
   </div>
