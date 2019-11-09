@@ -1,7 +1,7 @@
 <?php 
  // ---------routeur
 
-require('controller/frontend.php'); //appelle la page pour pouvoir fonctionner
+require('controller/frontend.php'); //appel du controller 
 require('controller/backend.php');
 session_start();  // garde la session
 
